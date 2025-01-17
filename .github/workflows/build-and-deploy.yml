@@ -40,16 +40,17 @@ jobs:
         image: nginx:latest12
          
   deploy:
-    name: Deploy with DuploCloud
+    # This example get AWS credentials, then lists all S3 buckets.
+    name: using GHA Jit update multiple services
     runs-on: ubuntu-latest
     steps:
       - name: aws-jit
         uses: duplocloud/ghactions-aws-jit@master
         with:
          aws_region: us-east-2 #ap-east-1
-         duplo_host: https://oneclick.duplocloud.net
+         duplo_host: ${{ env.DUPLO_HOST }}
          duplo_token: ${{ secrets.DUPLO_TOKEN }}
-         tenant: "${{ env.TENANT_NAME }}"
+         tenant: auto-02
       - name: AWS us-west-2 - Logintest
         uses: duplocloud/ghactions-aws-jit@master
         with:
@@ -66,8 +67,5 @@ jobs:
               { "Name": "serv1", "Image": "nginx:stable" },
               { "Name": "serv2", "Image": "nginx:stable" },
               { "Name": "serv3", "Image": "nginx:stable" },
-              { "Name": "serv4", "Image": "nginx:stable" },
-              { "Name": "serv5", "Image": "nginx:stable" },
-              { "Name": "serv6", "Image": "nginx:stable" }
-            ]      
+              { "Name": "serv4", "Image": "nginx:stable" }   
 
