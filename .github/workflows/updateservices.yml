@@ -5,7 +5,7 @@ on:
       environment:
         description: The environment to deploy to
         type: environment
-        default: dev
+        default: auto-02
         required: true
       image:
         description: The full image
@@ -14,7 +14,7 @@ on:
 env:
   duplo_host: https://qa-aws.duplocloud.net
   duplo_token: ${{ secrets.DUPLO_TOKEN }}
-  TENANT_NAME: sandhya		# DuploCloud Tenant name
+  TENANT_NAME: auto-02		# DuploCloud Tenant name
 jobs:
   deploy:
     # This example get AWS credentials, then lists all S3 buckets.
@@ -25,7 +25,7 @@ jobs:
         uses: duplocloud/ghactions-aws-jit@master
         with:
          aws_region: us-east-2 #ap-east-1
-         duplo_host: https://qa-aws.duplocloud.net
+         duplo_host: https://oneclick.duplocloud.net
          duplo_token: ${{ secrets.DUPLO_TOKEN }}
          tenant: "${{ env.TENANT_NAME }}"
       - name: AWS us-west-2 - Logintest
