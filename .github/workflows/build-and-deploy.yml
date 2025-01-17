@@ -69,9 +69,5 @@ jobs:
               { "Name": "serv4", "Image": "nginx:stable" },
               { "Name": "serv5", "Image": "nginx:stable" },
               { "Name": "serv6", "Image": "nginx:stable" }
-              ]
-            
-
-              
             ]      
 
