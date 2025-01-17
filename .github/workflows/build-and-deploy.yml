@@ -17,7 +17,7 @@ jobs:
     env:
       DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
       DUPLO_HOST: https://oneclick..duplocloud.net
-      DUPLO_TENANT: sandhya
+      DUPLO_TENANT: e2154bb8-c58f-4b7c-8dd8-3f4549886c06
     steps: 
     
     # install and login to the cloud
@@ -34,7 +34,7 @@ jobs:
     - name: Update CronJob 
       uses: duplocloud/actions/update-cronjob@main
       with:
-        cronjob: test2
+        cronjob: serv2
         image: nginx:latest12
          
   deploy:
