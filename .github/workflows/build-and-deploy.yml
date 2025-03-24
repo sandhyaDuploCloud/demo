@@ -52,7 +52,7 @@ jobs:
         kind: Job
         metadata:
           name: my-job
-          namespace: duploservices-mytenant
+          namespace: duploservices-auto-02
         spec:
           backoffLimit: 4
           parallelism: 1
