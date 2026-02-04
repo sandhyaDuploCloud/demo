@@ -4,7 +4,7 @@ on:
     branches:
       - master # branch to trigger on
 env:
-  duplo_host: https://oneclick.duplocloud.net
+  duplo_host: https://perf.duplocloud.net
   duplo_token: ${{ secrets.DUPLO_TOKEN }}
   TENANT_NAME: auto-02		# DuploCloud Tenant name
 
@@ -18,7 +18,7 @@ jobs:
       name: ${{ inputs.environment }}
     env:
       DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
-      DUPLO_HOST: https://oneclick..duplocloud.net
+      DUPLO_HOST: https://perf..duplocloud.net
       DUPLO_TENANT: e2154bb8-c58f-4b7c-8dd8-3f4549886c06
     steps: 
     
