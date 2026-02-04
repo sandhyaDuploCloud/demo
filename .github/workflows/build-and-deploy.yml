@@ -6,7 +6,7 @@ on:
 env:
   duplo_host: https://perf.duplocloud.net
   duplo_token: ${{ secrets.DUPLO_TOKEN }}
-  TENANT_NAME: auto-02		# DuploCloud Tenant name
+  TENANT_NAME: qaperf-1-80	# DuploCloud Tenant name
 
 jobs:
 ## get AWS credentials, then lists all S3 buckets.
