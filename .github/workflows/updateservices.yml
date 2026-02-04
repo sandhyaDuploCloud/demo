@@ -5,7 +5,7 @@ on:
       environment:
         description: The environment to deploy to
         type: environment
-        default: auto-02
+        default: qaperf-1-80
         required: true
       image:
         description: The full image
