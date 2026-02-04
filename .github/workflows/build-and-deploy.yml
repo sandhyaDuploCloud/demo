@@ -33,56 +33,6 @@ jobs:
         service: serv1
         image: nginx:latest12
         
-    - name: Update CronJob 
-      uses: duplocloud/actions/update-cronjob@main
-      with:
-        cronjob: serv2
-        image: nginx:latest12
-        
-  run-k8s-job:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v3
-    - name: Build Job
-      shell: bash
-      run: |
-        cat <<EOF > job.yaml
-        apiVersion: batch/v1
-        kind: Job
-        metadata:
-          name: my-job
-          namespace: duploservices-auto-02
-        spec:
-          backoffLimit: 4
-          parallelism: 1
-          template:
-            spec:
-              restartPolicy: Never
-              nodeSelector:
-                tenantname: duploservices-auto-02
-              containers:
-              - name: app
-                image: alpine:latest
-                command:
-                - /bin/sh
-                - -c
-                args:
-                - |
-                  # Jobs that exit immediately may fail the wait conditions above or be missing logs.
-                  # Most jobs take at least a few seconds to complete, so this isn't an issue. If your
-                  # job exits too quickly, inject some seconds of sleep. Upcoming Kubernetes features
-                  # may simplify this.
-                  sleep 10
-                  echo "Hello World, I'm in Kubernetes!"
-        EOF
-
-    - name: Apply and Watch
-      uses: duplocloud/actions/k8s-job@main
-      with:
-        file: job.yaml
-        timeout: 300s
-        cleanup_delay: 3600  # Optional delay for debugging purposes
          
   deploy:
     # This example get AWS credentials, then lists all S3 buckets.
@@ -95,7 +45,7 @@ jobs:
          aws_region: us-east-2 #ap-east-1
          duplo_host: ${{ env.DUPLO_HOST }}
          duplo_token: ${{ secrets.DUPLO_TOKEN }}
-         tenant: auto-02
+         tenant: qaperf-1-80
       - name: AWS us-west-2 - Logintest
         uses: duplocloud/ghactions-aws-jit@master
         with:
