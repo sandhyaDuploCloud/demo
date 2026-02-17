@@ -4,7 +4,7 @@ on:
     branches:
       - master # branch to trigger on
 env:
-  duplo_host: https://qa-aws.duplocloud.net
+  duplo_host: https://perf.duplocloud.net
   duplo_token: ${{ secrets.DUPLO_TOKEN }}
   TENANT_NAME:  qaperf-1-80	# DuploCloud Tenant name
 
