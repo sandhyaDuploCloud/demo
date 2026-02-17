@@ -59,11 +59,18 @@ jobs:
           tenant: "${{ env.TENANT_NAME }}"
           services: |-
             [
-              { "Name": "serv1", "Image": "nginx:stable1" },
-              { "Name": "serv2", "Image": "nginx:stable1" },
-              { "Name": "serv3", "Image": "nginx:stable1" },
-              { "Name": "serv4", "Image": "nginx:stable1" },
-              { "Name": "serv5", "Image": "nginx:stable1" },
-              { "Name": "serv6", "Image": "nginx:stable1" }   
+              { "Name": "serv1", "Image": "nginx:latest" },
+              { "Name": "serv2", "Image": "nginx:latest" },
+              { "Name": "serv3", "Image": "nginx:latest" },
+              { "Name": "serv4", "Image": "nginx:latest" },
+              { "Name": "serv5", "Image": "nginx:latest" },
+              { "Name": "serv6", "Image": "nginx:latest" },
+              { "Name": "1tzou", "Image": "nginx:latest" },
+              { "Name": "s1qets", "Image": "nginx:latest" },
+              { "Name": "s1yhtj", "Image": "nginx:latest" },
+              { "Name": "s1wkid", "Image": "nginx:latest" },
+              { "Name": "s1dibj", "Image": "nginx:latest" },
+              { "Name": "s1ygub", "Image": "nginx:latest" },
+              { "Name": "s1vevb", "Image": "nginx:latest" }
             ]
 
