@@ -4,9 +4,9 @@ on:
     branches:
       - master # branch to trigger on
 env:
-  duplo_host: https://perf.duplocloud.net
+  duplo_host: https://qa-aws.duplocloud.net
   duplo_token: ${{ secrets.DUPLO_TOKEN }}
-  TENANT_NAME: qaperf-1-80	# DuploCloud Tenant name
+  TENANT_NAME:  qaperf-1-80	# DuploCloud Tenant name
 
 jobs:
 ## get AWS credentials, then lists all S3 buckets.
@@ -18,8 +18,8 @@ jobs:
       name: ${{ inputs.environment }}
     env:
       DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
-      DUPLO_HOST: https://perf..duplocloud.net
-      DUPLO_TENANT: fd08b777-6aca-4f2b-9e52-d7be69e4fec6
+      DUPLO_HOST: https://qa-aws.duplocloud.net
+      DUPLO_TENANT: 9c47eee7-4441-4d05-84b8-571c3774c85d
     steps: 
     
     # install and login to the cloud
@@ -45,7 +45,7 @@ jobs:
          aws_region: us-east-2 #ap-east-1
          duplo_host: ${{ env.DUPLO_HOST }}
          duplo_token: ${{ secrets.DUPLO_TOKEN }}
-         tenant: qaperf-1-80
+         tenant: qaqa-aws-1-80
       - name: AWS us-west-2 - Logintest
         uses: duplocloud/ghactions-aws-jit@master
         with:
@@ -60,17 +60,6 @@ jobs:
           services: |-
             [
               { "Name": "serv1", "Image": "nginx:latest1" },
-              { "Name": "serv2", "Image": "nginx:latest" },
-              { "Name": "serv3", "Image": "nginx:latest" },
-              { "Name": "serv4", "Image": "nginx:latest" },
-              { "Name": "serv5", "Image": "nginx:latest" },
-              { "Name": "serv6", "Image": "nginx:latest" },
-              { "Name": "s1tzou", "Image": "nginx:latest" },
-              { "Name": "s1qets", "Image": "nginx:latest11" },
-              { "Name": "s1yhtj", "Image": "nginx:latest" },
-              { "Name": "s1wkid", "Image": "nginx:latest" },
-              { "Name": "s1dibj", "Image": "nginx:latest" },
-              { "Name": "s1ygub", "Image": "nginx:latest" },
-              { "Name": "s1vevb", "Image": "nginx:latest" }
+              { "Name": "serv2", "Image": "nginx:latest" }
             ]
 
