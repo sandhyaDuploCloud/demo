@@ -10,29 +10,6 @@ env:
 
 jobs:
 ## get AWS credentials, then lists all S3 buckets.
-
-  update_service:
-    name: Update Service using DuploCtl
-    runs-on: ubuntu-latest2
-    environment: 
-      name: ${{ inputs.environment }}
-    env:
-      DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
-      DUPLO_HOST: https://qa-aws.duplocloud.net
-      DUPLO_TENANT: 9c47eee7-4441-4d05-84b8-571c3774c85d
-    steps: 
-    
-    # install and login to the cloud
-    - name: Duplo Setup
-      uses: duplocloud/actions/setup@main
-
-    # uses duploctl from above
-    - name: Update Service
-      uses: duplocloud/actions/update-service@main
-      with:
-        service: serv1
-        image: nginx:latest12
-        
          
   deploy:
     # This example get AWS credentials, then lists all S3 buckets.
