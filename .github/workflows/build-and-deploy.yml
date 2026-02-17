@@ -66,7 +66,7 @@ jobs:
               { "Name": "serv5", "Image": "nginx:latest" },
               { "Name": "serv6", "Image": "nginx:latest" },
               { "Name": "s1tzou", "Image": "nginx:latest" },
-              { "Name": "s1qets", "Image": "nginx:latest1" },
+              { "Name": "s1qets", "Image": "nginx:latest11" },
               { "Name": "s1yhtj", "Image": "nginx:latest" },
               { "Name": "s1wkid", "Image": "nginx:latest" },
               { "Name": "s1dibj", "Image": "nginx:latest" },
