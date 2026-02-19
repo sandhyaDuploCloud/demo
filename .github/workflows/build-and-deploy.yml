@@ -37,6 +37,6 @@ jobs:
           services: |-
             [
               { "Name": "serv1", "Image": "nginx:latest12" },
-              { "Name": "serv2", "Image": "nginx:latest" }
+              { "Name": "serv2", "Image": "nginx:latest12" }
             ]
 
