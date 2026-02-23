@@ -44,6 +44,7 @@ jobs:
       with:
         services: |
           [
+             [
             {
               "service": "serv1",
               "image": "myregistry/frontend:v1.2.3"
@@ -56,6 +57,68 @@ jobs:
               "service": "serv3",
               "image": "myregistry/backend:latest"
             }
+            ,
+            {
+              "service": "s1tzou",
+              "image": "myregistry/backend:latest"
+            }
+             ,
+            {
+              "service": "s1qets",
+              "image": "myregistry/backend:latest"
+            }
+             ,
+            {
+              "service": "s1yhtj",
+              "image": "myregistry/backend:latest"
+            }
+             ,
+            {
+              "service": "s1wkid",
+              "image": "myregistry/backend:latest"
+            }
+             ,
+            {
+              "service": "s1dibj",
+              "image": "myregistry/backend:latest"
+            }
+             ,
+            {
+              "service": "s1ygub",
+              "image": "myregistry/backend:latest"
+            },
+             
+            {
+              "service": "s1vevb",
+              "image": "myregistry/backend:latest"
+            },
+             
+            {
+              "service": "s1fedk",
+              "image": "myregistry/backend:latest"
+            },
+             
+            {
+              "service": "s1qijq",
+              "image": "myregistry/backend:latest"
+            },
+             
+            {
+              "service": "nginx1",
+              "image": "myregistry/backend:latest"
+            }
+            ,
+             
+            {
+              "service": "nginx2",
+              "image": "myregistry/backend:latest"
+            },
+             
+            {
+              "service": "nginx3",
+              "image": "myregistry/backend:latest"
+            }
+          ]
           ]
 
 
