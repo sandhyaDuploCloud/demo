@@ -39,9 +39,9 @@ jobs:
         image: nginx:123
         type: service
 
-     - name: Update Multiple Images
-       uses: duplocloud/actions/update-images@v1
-       with:
+    - name: Update Multiple Images
+      uses: duplocloud/actions/update-images@v1
+      with:
         services: |
           [
             {
