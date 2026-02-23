@@ -44,7 +44,7 @@ jobs:
       with:
         services: |
           [
-             [
+             
             {
               "service": "serv1",
               "image": "myregistry/frontend:v1.2.3"
@@ -118,7 +118,7 @@ jobs:
               "service": "nginx3",
               "image": "myregistry/backend:latest"
             }
-          ]
+          
           ]
 
 
