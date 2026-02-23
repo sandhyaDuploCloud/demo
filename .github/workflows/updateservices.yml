@@ -14,10 +14,7 @@ on:
         description: The full image
         type: string
         required: true
-env:
-  duplo_host: https://perf.duplocloud.net
-  duplo_token: ${{ secrets.DUPLO_TOKEN }}
-  TENANT_NAME: qaperf-1-80	# DuploCloud Tenant name
+
 jobs:
   update_service:
     name: Update Service
@@ -38,6 +35,6 @@ jobs:
     - name: Update Service
       uses: duplocloud/actions/update-image@v0.0.5
       with:
-        name: my-service
+        name: serv1
         image: nginx:123
         type: service
