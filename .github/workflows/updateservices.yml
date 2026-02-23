@@ -38,3 +38,25 @@ jobs:
         name: serv1
         image: nginx:123
         type: service
+
+     - name: Update Multiple Images
+      uses: duplocloud/actions/update-images@v1
+      with:
+        services: |
+          [
+            {
+              "service": "serv1",
+              "image": "myregistry/frontend:v1.2.3"
+            },
+            {
+              "service": "serv2",
+              "image": "myregistry/backend:latest"
+            },
+            {
+              "service": "serv3",
+              "image": "myregistry/backend:latest"
+            }
+          ]
+
+
+        
