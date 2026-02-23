@@ -40,7 +40,7 @@ jobs:
         type: service
 
     - name: Update Multiple Images
-      uses: duplocloud/actions/update-images@v1
+      uses: duplocloud/actions/update-images@v0.0.13
       with:
         services: |
           [
