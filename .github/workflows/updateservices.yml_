@@ -35,23 +35,9 @@ jobs:
           aws_region: us-west-2
       - name: list-vpc
         run: aws ec2 describe-vpcs
-      - name: Deploy
-        uses: duplocloud/ghactions-service-update@master
+      - name: Update Service
+        uses: duplocloud/actions/update-image@v0.0.5
         with:
-          tenant: "${{ env.TENANT_NAME }}"
-          services: |-
-            [
-              { "Name": "serv1", "Image": "nginx:latest" },
-              { "Name": "serv2", "Image": "nginx:latest" },
-              { "Name": "serv3", "Image": "nginx:latest" },
-              { "Name": "serv4", "Image": "nginx:latest" },
-              { "Name": "serv5", "Image": "nginx:latest" },
-              { "Name": "serv6", "Image": "nginx:latest" },
-              { "Name": "s1tzou", "Image": "nginx:latest11" },
-              { "Name": "s1qets", "Image": "nginx:latest" },
-              { "Name": "s1yhtj", "Image": "nginx:latest" },
-              { "Name": "s1wkid", "Image": "nginx:latest" },
-              { "Name": "s1dibj", "Image": "nginx:latest" },
-              { "Name": "s1ygub", "Image": "nginx:latest" },
-              { "Name": "s1vevb", "Image": "nginx:latest" }
-            ]
+          name: serv1
+          image: nginx:123
+          type: service
