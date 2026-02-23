@@ -26,17 +26,13 @@ jobs:
       name: ${{ inputs.environment }}
     env:
       DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
-      DUPLO_HOST: ${{ vars.duplo_host  }}
-      DUPLO_TENANT: ${{ vars.TENANT_NAME }}
+      DUPLO_HOST: https://perf.duplocloud.net
+      DUPLO_TENANT: qaperf-1-80	
     steps: 
     
     # install and login to the cloud
     - name: Duplo Setup
       uses: duplocloud/actions@v0.0.13
-      # only required on gcp and azure
-      with:
-        account-id: ${{ vars.CLOUD_ACCOUNT }}
-        credentials: ${{ secrets.CLOUD_CREDENTIALS }}
 
     # uses duploctl from above
     - name: Update Service
