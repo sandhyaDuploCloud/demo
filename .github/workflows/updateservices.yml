@@ -1,5 +1,8 @@
 name: Build and Deploy
-on: 
+on:
+  push:
+    branches:
+      - master # branch to trigger on
   workflow_dispatch:
     inputs:
       environment:
