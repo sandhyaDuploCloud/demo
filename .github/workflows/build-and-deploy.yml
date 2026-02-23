@@ -16,20 +16,6 @@ jobs:
     name: using GHA Jit update multiple services
     runs-on: ubuntu-latest
     steps:
-      - name: aws-jit
-        uses: duplocloud/ghactions-aws-jit@master
-        with:
-         aws_region: us-east-2 #ap-east-1
-         duplo_host: ${{ env.DUPLO_HOST }}
-         duplo_token: ${{ secrets.DUPLO_TOKEN }}
-         tenant: qaperf-1-80
-      - name: AWS us-west-2 - Logintest
-        uses: duplocloud/ghactions-aws-jit@master
-        with:
-          admin: true
-          aws_region: us-west-2
-      - name: list-vpc
-        run: aws ec2 describe-vpcs
       - name: Deploy
         uses: duplocloud/ghactions-service-update@master
         with:
