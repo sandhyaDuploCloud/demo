@@ -111,7 +111,7 @@ jobs:
              
             {
               "service": "nginx2",
-              "image": "myregistry/backend:latest"
+              "image": "myregistry/backend:latest1"
             },
              
             {
