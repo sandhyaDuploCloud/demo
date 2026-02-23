@@ -19,28 +19,29 @@ env:
   duplo_token: ${{ secrets.DUPLO_TOKEN }}
   TENANT_NAME: qaperf-1-80	# DuploCloud Tenant name
 jobs:
-  deploy:
-    # This example get AWS credentials, then lists all S3 buckets.
-    name: Deploy with DuploCloud
+  update_service:
+    name: Update Service
     runs-on: ubuntu-latest
-    steps:
-      - name: aws-jit
-        uses: duplocloud/ghactions-aws-jit@master
-        with:
-         aws_region: us-east-2 #ap-east-1
-         duplo_host: https://perf.duplocloud.net
-         duplo_token: ${{ secrets.DUPLO_TOKEN }}
-         tenant: "${{ env.TENANT_NAME }}"
-      - name: AWS us-west-2 - Logintest
-        uses: duplocloud/ghactions-aws-jit@master
-        with:
-          admin: true
-          aws_region: us-west-2
-      - name: list-vpc
-        run: aws ec2 describe-vpcs
-      - name: Update Service
-        uses: duplocloud/actions/update-image@v0.0.5
-        with:
-          name: serv1
-          image: nginx:123
-          type: service
+    environment: 
+      name: ${{ inputs.environment }}
+    env:
+      DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
+      DUPLO_HOST: ${{ vars.duplo_host  }}
+      DUPLO_TENANT: ${{ vars.TENANT_NAME }}
+    steps: 
+    
+    # install and login to the cloud
+    - name: Duplo Setup
+      uses: duplocloud/actions@v0.0.13
+      # only required on gcp and azure
+      with:
+        account-id: ${{ vars.CLOUD_ACCOUNT }}
+        credentials: ${{ secrets.CLOUD_CREDENTIALS }}
+
+    # uses duploctl from above
+    - name: Update Service
+      uses: duplocloud/actions/update-image@v0.0.5
+      with:
+        name: my-service
+        image: nginx:123
+        type: service
