@@ -9,7 +9,7 @@ jobs:
     name: Update Service
     runs-on: ubuntu-latest
     environment: 
-      name: ${{ inputs.environment }}
+      name: perf
     env:
       DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
       DUPLO_HOST: https://perf.duplocloud.net
@@ -28,6 +28,13 @@ jobs:
         image: nginx:123
         type: service
 
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-west-2     
+
     - name: Update Multiple Images
       uses: duplocloud/actions/update-images@v0.0.13
       with:
@@ -37,78 +44,10 @@ jobs:
             {
               "service": "serv1",
               "image": "myregistry/frontend:v1.2.3"
-            },
-            {
-              "service": "serv2",
-              "image": "myregistry/backend:latest"
-            },
-            {
-              "service": "serv3",
-              "image": "myregistry/backend:latest"
-            }
-            ,
-            {
-              "service": "s1tzou",
-              "image": "myregistry/backend:latest"
-            }
-             ,
-            {
-              "service": "s1qets",
-              "image": "myregistry/backend:latest"
-            }
-             ,
-            {
-              "service": "s1yhtj",
-              "image": "myregistry/backend:latest"
-            }
-             ,
-            {
-              "service": "s1wkid",
-              "image": "myregistry/backend:latest"
-            }
-             ,
-            {
-              "service": "s1dibj",
-              "image": "myregistry/backend:latest"
-            }
-             ,
-            {
-              "service": "s1ygub",
-              "image": "myregistry/backend:latest"
-            },
-             
-            {
-              "service": "s1vevb",
-              "image": "myregistry/backend:latest"
-            },
-             
-            {
-              "service": "s1fedk",
-              "image": "myregistry/backend:latest"
-            },
-             
-            {
-              "service": "s1qijq",
-              "image": "myregistry/backend:latest"
-            },
-             
-            {
-              "service": "nginx1",
-              "image": "myregistry/backend:latest111"
-            }
-            ,
-             
-            {
-              "service": "nginx2",
-              "image": "myregistry/backend:latest1"
-            },
-             
-            {
-              "service": "nginx3",
-              "image": "myregistry/backend:latest"
             }
           
           ]
 
+  
 
         
