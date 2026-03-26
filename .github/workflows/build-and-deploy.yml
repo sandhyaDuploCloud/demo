@@ -4,9 +4,9 @@ on:
     branches:
       - master # branch to trigger on
 env:
-  duplo_host: https://perf.duplocloud.net
+  duplo_host: https://qa-aws.duplocloud.net
   duplo_token: ${{ secrets.DUPLO_TOKEN }}
-  TENANT_NAME:  qaperf-1-80	# DuploCloud Tenant name
+  TENANT_NAME:  maja2603 # DuploCloud Tenant name
 
 jobs:
 ## get AWS credentials, then lists all S3 buckets.
@@ -23,6 +23,24 @@ jobs:
           services: |-
             [
               { "Name": "serv1", "Image": "nginx:latest121" },
-              { "Name": "serv2", "Image": "nginx:latest12" }
+              { "Name": "serv2", "Image": "nginx:latest12" },
+              { "Name": "serv3", "Image": "nginx:latest12" },
+              { "Name": "serv4", "Image": "nginx:latest12" },
+              { "Name": "serv5", "Image": "nginx:latest12" },
+               { "Name": "serv6", "Image": "nginx:latest121" },
+              { "Name": "serv7", "Image": "nginx:latest12" },
+              { "Name": "serv8", "Image": "nginx:latest12" },
+              { "Name": "serv9", "Image": "nginx:latest12" },
+              { "Name": "serv10", "Image": "nginx:latest12" },
+               { "Name": "serv11", "Image": "nginx:latest121" },
+              { "Name": "serv12", "Image": "nginx:latest12" },
+              { "Name": "serv13", "Image": "nginx:latest12" },
+              { "Name": "serv14", "Image": "nginx:latest12" },
+              { "Name": "serv15", "Image": "nginx:latest12" },
+               { "Name": "serv16", "Image": "nginx:latest121" },
+              { "Name": "serv17", "Image": "nginx:latest1" },
+              { "Name": "serv18", "Image": "nginx:latest12" },
+              { "Name": "serv19", "Image": "nginx:latest12" },
+              { "Name": "serv20", "Image": "nginx:latest12" }
             ]
 
