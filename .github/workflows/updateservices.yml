@@ -22,7 +22,7 @@ jobs:
 
     # uses duploctl from above
     - name: Update Service
-      uses: duplocloud/actions/update-image@v0.0.5
+      uses: duplocloud/actions/update-image@v0.0.14
       with:
         name: serv3
         image: nginx:123
