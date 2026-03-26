@@ -24,7 +24,7 @@ jobs:
     - name: Update Service
       uses: duplocloud/actions/update-image@v0.0.5
       with:
-        name: serv1
+        name: serv3
         image: nginx:123
         type: service
 
