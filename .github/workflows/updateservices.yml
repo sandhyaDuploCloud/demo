@@ -12,8 +12,8 @@ jobs:
       name: perf
     env:
       DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
-      DUPLO_HOST: https://perf.duplocloud.net
-      DUPLO_TENANT: qaperf-1-80	
+      DUPLO_HOST: https://qa-aws.duplocloud.net
+      DUPLO_TENANT: maja2603	
     steps: 
     
     # install and login to the cloud
@@ -44,7 +44,60 @@ jobs:
             {
               "service": "serv1",
               "image": "myregistry/frontend:v1.2.3"
+            },
+              {
+              "service": "serv2",
+              "image": "myregistry/frontend:v1.2.3"
+            },
+              {
+              "service": "serv3",
+              "image": "myregistry/frontend:v1.2.3"
+            },
+               {
+              "service": "serv4",
+              "image": "myregistry/frontend:v1.2.3"
+            },
+              {
+              "service": "serv5",
+              "image": "myregistry/frontend:v1.2.3"
+            },
+              {
+              "service": "serv6",
+              "image": "myregistry/frontend:v1.2.3"
+            },
+                 {
+              "service": "serv7",
+              "image": "myregistry/frontend:v1.2.3"
+            },
+              {
+              "service": "serv8",
+              "image": "myregistry/frontend:v1.2.3"
+            },
+              {
+              "service": "serv9",
+              "image": "myregistry/frontend:v1.2.3"
+            },
+               {
+              "service": "serv10",
+              "image": "myregistry/frontend:v1.2.3"
+            },
+              {
+              "service": "serv11",
+              "image": "myregistry/frontend:v1.2.3"
+            },
+              {
+              "service": "serv12",
+              "image": "myregistry/frontend:v1.2.3"
+            },
+               {
+              "service": "serv13",
+              "image": "myregistry/frontend:v1.2.3"
+            },
+              {
+              "service": "serv14",
+              "image": "myregistry/frontend:v1.2.3"
             }
+            
           
           ]
 
