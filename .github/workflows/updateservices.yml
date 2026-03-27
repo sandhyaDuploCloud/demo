@@ -13,7 +13,7 @@ jobs:
     env:
       DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
       DUPLO_HOST: https://qa-aws.duplocloud.net
-      DUPLO_TENANT: maja2603	
+      DUPLO_TENANT: maja2703	
     steps: 
     
     # install and login to the cloud
