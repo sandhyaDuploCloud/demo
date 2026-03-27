@@ -12,7 +12,7 @@ jobs:
       name: perf
     env:
       DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
-      DUPLO_HOST: https://qa-aws.duplocloud.net
+      DUPLO_HOST: https://qa-govcloud.duplocloud.net
       DUPLO_TENANT: maja2703	
     steps: 
     
