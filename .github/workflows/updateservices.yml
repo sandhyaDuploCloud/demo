@@ -96,6 +96,30 @@ jobs:
               {
               "service": "serv14",
               "image": "myregistry/frontend:v1.2.3"
+            },
+                  {
+              "service": "serv15",
+              "image": "myregistry/frontend:v1.2.3"
+            },
+              {
+              "service": "serv16",
+              "image": "myregistry/frontend:v1.2.3"
+            },
+              {
+              "service": "serv17",
+              "image": "myregistry/frontend:v1.2.3"
+            },
+               {
+              "service": "serv18",
+              "image": "myregistry/frontend:v1.2.3"
+            },
+              {
+              "service": "serv19",
+              "image": "myregistry/frontend:v1.2.3"
+            },
+                 {
+              "service": "serv20",
+              "image": "myregistry/frontend:v1.2.3"
             }
             
           
