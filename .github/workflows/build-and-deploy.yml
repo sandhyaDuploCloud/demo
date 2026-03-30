@@ -23,7 +23,7 @@ jobs:
           services: |-
             [
               { "Name": "serv1", "Image": "nginx:perl" },
-              { "Name": "serv2", "Image": "nginx:latest3" },
+              { "Name": "serv2", "Image": "nginx:perl" },
               { "Name": "serv3", "Image": "nginx:latest2" },
               { "Name": "serv4", "Image": "nginx:latest12" },
               { "Name": "serv5", "Image": "nginx:latest132" },
