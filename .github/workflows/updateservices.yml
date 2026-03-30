@@ -79,7 +79,7 @@ jobs:
             },
                {
               "service": "serv10",
-              "image": "myregistry/frontend:v1.2.3"
+              "image": "myregistry/frontend:v1.2.4"
             },
               {
               "service": "serv11",
