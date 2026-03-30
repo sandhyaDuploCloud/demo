@@ -43,7 +43,7 @@ jobs:
              
             {
               "service": "serv1",
-              "image": "myregistry/frontend:v1.2.4"
+              "image": "nginx:perl"
             },
               {
               "service": "serv2",
