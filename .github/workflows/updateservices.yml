@@ -47,7 +47,7 @@ jobs:
             },
               {
               "service": "serv2",
-              "image": "myregistry/frontend:v1.2.3"
+              "image": "nginx:perl"
             },
               {
               "service": "serv3",
