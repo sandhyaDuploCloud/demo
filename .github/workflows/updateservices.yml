@@ -55,15 +55,15 @@ jobs:
             },
                {
               "service": "serv4",
-              "image": "myregistry/frontend:v1.2.3"
+              "image": "nginx:1.27.4"
             },
               {
               "service": "serv5",
-              "image": "myregistry/frontend:v1.2.3"
+              "image": "nginx:1.27.2"
             },
               {
               "service": "serv6",
-              "image": "myregistry/frontend:v1.2.3"
+              "image": "nginx:1.25.5"
             },
                  {
               "service": "serv7",
@@ -71,7 +71,7 @@ jobs:
             },
               {
               "service": "serv8",
-              "image": "myregistry/frontend:v1.2.3"
+              "image": "nginx:latest"
             },
               {
               "service": "serv9",
