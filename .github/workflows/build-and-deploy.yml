@@ -13,7 +13,7 @@ jobs:
          
   deploy:
     # This example get AWS credentials, then lists all S3 buckets.
-    name: using GHA Jit update multiple services
+    name: using GHA Jit update multiple servicesq
     runs-on: ubuntu-latest
     environment: 
       name: perf
