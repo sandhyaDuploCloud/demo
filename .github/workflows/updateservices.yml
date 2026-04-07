@@ -12,8 +12,8 @@ jobs:
       name: perf
     env:
       DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
-      DUPLO_HOST: https://qa-govcloud.duplocloud.net
-      DUPLO_TENANT: maja3003	
+      DUPLO_HOST: https://perf.duplocloud.net
+      DUPLO_TENANT: maja0704	
     steps: 
     
     # install and login to the cloud
