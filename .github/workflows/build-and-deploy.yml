@@ -41,7 +41,7 @@ jobs:
                { "Name": "serv11", "Image": "nginx:latest91" },
               { "Name": "serv12", "Image": "nginx:perl" },
               { "Name": "serv13", "Image": "nginx:perl" },
-              { "Name": "serv14", "Image": "nginx:latest12" },
+              { "Name": "serv14", "Image": "nginx:perl" },
               { "Name": "serv15", "Image": "nginx:latest12" },
                { "Name": "serv16", "Image": "nginx:latest81" },
               { "Name": "serv17", "Image": "nginx:latest21" },
