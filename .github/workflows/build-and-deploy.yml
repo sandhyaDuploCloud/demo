@@ -4,9 +4,9 @@ on:
     branches:
       - master # branch to trigger on
 env:
-  duplo_host: https://qa-govcloud.duplocloud.net
+  duplo_host: https://perf.duplocloud.net
   duplo_token: ${{ secrets.DUPLO_TOKEN }}
-  TENANT_NAME:  maja3003 # DuploCloud Tenant name
+  TENANT_NAME:  maja0704 # DuploCloud Tenant name
 
 jobs:
 ## get AWS credentials, then lists all S3 buckets.
