@@ -75,7 +75,7 @@ jobs:
             },
               {
               "service": "serv9",
-              "image": "myregistry/frontend:v1.2.3"
+              "image": "nginx:alpine"
             },
                {
               "service": "serv10",
