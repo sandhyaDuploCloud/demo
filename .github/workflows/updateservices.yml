@@ -13,7 +13,7 @@ jobs:
     env:
       DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
       DUPLO_HOST: https://perf.duplocloud.net
-      DUPLO_TENANT: existing-data	
+      DUPLO_TENANT: maja2404
     steps: 
     
     # install and login to the cloud
@@ -63,7 +63,7 @@ jobs:
             },
               {
               "service": "serv6",
-              "image": "nginx:1.25.5"
+              "image": "nginx:1.25.4"
             },
                  {
               "service": "serv7",
