@@ -20,7 +20,7 @@ jobs:
     env:
       duplo_host: https://perf.duplocloud.net
       duplo_token: ${{ secrets.DUPLO_TOKEN }}
-      TENANT_NAME:  existing-data # DuploCloud Tenant name
+      TENANT_NAME:  maja2404 # DuploCloud Tenant name
     steps:
       - name: Deploy
         uses: duplocloud/ghactions-service-update@master
