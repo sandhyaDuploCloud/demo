@@ -6,7 +6,7 @@ on:
 env:
   duplo_host: https://perf.duplocloud.net
   duplo_token: ${{ secrets.DUPLO_TOKEN }}
-  TENANT_NAME:  maja2404 # DuploCloud Tenant name
+  TENANT_NAME:  qa1 # DuploCloud Tenant name
 
 jobs:
 ## get AWS credentials, then lists all S3 buckets.
@@ -20,7 +20,7 @@ jobs:
     env:
       duplo_host: https://perf.duplocloud.net
       duplo_token: ${{ secrets.DUPLO_TOKEN }}
-      TENANT_NAME:  maja2404 # DuploCloud Tenant name
+      TENANT_NAME:  qa1 # DuploCloud Tenant name
     steps:
       - name: Deploy
         uses: duplocloud/ghactions-service-update@master
