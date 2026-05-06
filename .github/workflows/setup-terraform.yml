@@ -30,5 +30,3 @@ jobs:
         tflint_cache_dir: ~/.tflint.d/plugins
         tflint_version: v0.44.1
         terraform_version: 1.6.1
-    - name: Verify Node24
-      run: node --version
