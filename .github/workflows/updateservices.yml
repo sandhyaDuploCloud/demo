@@ -1,15 +1,13 @@
 name: Update Service using update-image
 on:
-  push:
-    branches:
-      - master # branch to trigger on
+  workflow_dispatch:
 
 jobs:
   update_service:
     name: Update Service
     runs-on: ubuntu-latest
     environment: 
-      name: perf
+      name: qa-aws
     env:
       DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
       DUPLO_HOST: https://perf.duplocloud.net
