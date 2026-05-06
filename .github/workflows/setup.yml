@@ -21,6 +21,6 @@ jobs:
       DUPLO_TENANT: ${{ vars.DUPLO_TENANT }}
     steps:
     - name: Duplo Setup
-      uses: duplocloud/actions@main
+      uses: duplocloud/actions@v0.0.14
       with:
         version: v0.4.3
