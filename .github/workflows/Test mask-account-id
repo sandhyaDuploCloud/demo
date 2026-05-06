@@ -1,4 +1,5 @@
 name: Test mask-account-id
+
 on:
   workflow_dispatch:
 
