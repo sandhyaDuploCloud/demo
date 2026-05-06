@@ -2,11 +2,6 @@ name: Update Images
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - node24-jt
-    paths:
-      - '.github/workflows/update-images.yml'
     inputs:
       services:
         description: 'JSON array of service-image pairs. Format: [{"service": "service1", "image": "image1:tag"}]'
@@ -19,6 +14,11 @@ on:
         description: Log level for duploctl output
         required: false
         default: "INFO"
+  push:
+    branches:
+      - node24-jt
+    paths:
+      - '.github/workflows/update-images.yml'
 
 jobs:
   update-images:
@@ -30,12 +30,12 @@ jobs:
       DUPLO_TENANT: ${{ vars.DUPLO_TENANT }}
     steps:
       - name: Duplo Setup AWS
-        uses: duplocloud/actions@node24-upgrade
+        uses: duplocloud/actions@v0.0.14
         with:
           region: ${{ vars.AWS_REGION }}
 
       - name: Update Images
-        uses: duplocloud/actions/update-images@node24-upgrade
+        uses: duplocloud/actions/update-images@v0.0.14
         with:
           services: ${{ inputs.services }}
           wait: ${{ inputs.wait }}
