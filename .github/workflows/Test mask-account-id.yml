@@ -1,10 +1,11 @@
 name: Test mask-account-id
 
 on:
-
   workflow_dispatch:
     inputs:
       actionsbranch:
+        description: 'github actions Branch'
+        required: true
         default: 'main'
 
 
@@ -40,7 +41,7 @@ jobs:
           node-version: '24'
 
       - name: Duplo Setup AWS - ${{ matrix.mask_value.label }}
-        uses: duplocloud/actions@${{ inputs.branch_name }}
+        uses: duplocloud/actions@${{ inputs.actionsbranch }}
         with:
           region: us-east-2
           mask-account-id: ${{ matrix.mask_value.value }}
