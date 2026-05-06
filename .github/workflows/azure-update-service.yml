@@ -16,7 +16,7 @@ jobs:
     environment: qa-azure
     env:
       DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
-      DUPLO_HOST: ${{ vars.DUPLO_HOST }}
+      DUPLO_HOST: https://qa2-azure.duplocloud.net/
       DUPLO_TENANT: ${{ vars.DUPLO_TENANT }}
     steps:
       - name: Duplo Setup Azure
