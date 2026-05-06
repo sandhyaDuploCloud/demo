@@ -4,9 +4,10 @@ on:
   workflow_dispatch:
     inputs:
       branch_name:
-        description: 'main or feature branch'
+        description: 'Main or feature branch'
         required: true
         default: 'main'
+
 
 jobs:
   test-masking:
