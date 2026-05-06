@@ -58,6 +58,6 @@ jobs:
       - name: Run DuploCloud Job
         uses: duplocloud/actions/run-job@node24-upgrade
         with:
-          file: ${{ inputs.file }}
+          file: ${{ inputs.file || 'job.yaml' }}
           wait: ${{ inputs.wait }}
           loglevel: ${{ inputs.loglevel }}
