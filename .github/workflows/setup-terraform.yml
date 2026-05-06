@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Install TF Dependencies
+      uses: duplocloud/actions/setup-terraform@main
+      with:
+        tf_cache_dir: ~/.terraform.d/plugin-cache
+        tflint_cache_dir: ~/.tflint.d/plugins
+        tflint_version: v0.44.1
+        terraform_version: 1.6.1
