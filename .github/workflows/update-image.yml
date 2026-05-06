@@ -2,11 +2,6 @@ name: Update Image
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - node24-jt
-    paths:
-      - '.github/workflows/update-image.yml'
     inputs:
       name:
         description: Service name
@@ -22,6 +17,11 @@ on:
         description: Wait for deployment
         required: false
         default: "false"
+  push:
+    branches:
+      - node24-jt
+    paths:
+      - '.github/workflows/update-image.yml'
 
 jobs:
   update-image:
