@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: qa-azure
     env:
-      DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
+      DUPLO_TOKEN: ${{ secrets.AZURE_DUPLO_TOKEN }}
       DUPLO_HOST: https://qa2-azure.duplocloud.net/
       DUPLO_TENANT: ${{ vars.DUPLO_TENANT }}
     steps:
