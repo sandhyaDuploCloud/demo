@@ -1,0 +1,32 @@
+name: Azure Update Service
+
+on:
+  workflow_dispatch:
+    inputs:
+      service:
+        description: Service name
+        required: true
+      image:
+        description: Image name
+        required: true
+
+jobs:
+  update-service:
+    runs-on: ubuntu-latest
+    environment: qa-azure
+    env:
+      DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
+      DUPLO_HOST: ${{ vars.DUPLO_HOST }}
+      DUPLO_TENANT: ${{ vars.DUPLO_TENANT }}
+    steps:
+      - name: Duplo Setup Azure
+        uses: duplocloud/actions@v0.0.14
+        with:
+          account-id: ${{ vars.AZURE_DIRECTORY_ID }}
+          credentials: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Update Service
+        uses: duplocloud/actions/update-service@v0.0.14
+        with:
+          service: ${{ inputs.service }}
+          image: ${{ inputs.image }}
