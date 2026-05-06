@@ -6,7 +6,7 @@ on:
 jobs:
   test-masking:
     runs-on: ubuntu-latest
-    environment: aws
+    environment: qa-aws
     strategy:
       matrix:
         mask_value:
@@ -26,7 +26,7 @@ jobs:
             label: "no"
     env:
       DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
-      DUPLO_HOST: ${{ secrets.DUPLO_HOST }}
+      DUPLO_HOST: "https://qa-aws.duplocloud.net"
       DUPLO_TENANT: ${{ secrets.DUPLO_TENANT }}
     steps:
       - name: Setup Node24
