@@ -2,11 +2,6 @@ name: AI HelpDesk Ticket
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - node24-jt
-    paths:
-      - '.github/workflows/ai-helpdesk.yml'
     inputs:
       agent_name:
         description: Name of the AI agent to handle the ticket
