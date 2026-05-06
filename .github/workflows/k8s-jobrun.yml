@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - node24-jt
+    paths:
+      - '.github/workflows/k8s-jobrun.yml'
     inputs:
       file:
         description: The file with a k8s job to run

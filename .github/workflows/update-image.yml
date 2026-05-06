@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - node24-jt
+    paths:
+      - '.github/workflows/update-image.yml'
     inputs:
       name:
         description: Service name

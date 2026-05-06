@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - node24-jt
+    paths:
+      - '.github/workflows/update-cronjob.yml'
     inputs:
       cronjob:
         description: CronJob name

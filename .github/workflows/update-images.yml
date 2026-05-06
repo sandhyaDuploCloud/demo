@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - node24-jt
+    paths:
+      - '.github/workflows/update-images.yml'
     inputs:
       services:
         description: 'JSON array of service-image pairs. Format: [{"service": "service1", "image": "image1:tag"}]'
