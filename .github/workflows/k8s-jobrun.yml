@@ -39,7 +39,7 @@ jobs:
         run: |
           printf '%s\n' \
             'metadata:' \
-            '  name: duploctl' \
+            '  name: newduploctl' \
             'spec:' \
             '  ttlSecondsAfterFinished: 86400' \
             '  parallelism: 2' \
