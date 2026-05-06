@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Install TF Dependencies
-      uses: duplocloud/actions/setup-terraform@main
+      uses: duplocloud/actions/setup-terraform@vnode24-upgrade
       with:
         tf_cache_dir: ~/.terraform.d/plugin-cache
         tflint_cache_dir: ~/.tflint.d/plugins
