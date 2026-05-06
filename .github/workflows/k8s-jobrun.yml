@@ -58,4 +58,4 @@ jobs:
       - name: Run Kubernetes Job
         uses: duplocloud/actions/run-job@node24-upgrade
         with:
-          file: ${{ inputs.file }}
+          file: ${{ inputs.file || 'job.yaml' }}
