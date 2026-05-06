@@ -9,6 +9,9 @@ on:
       tags:
         description: The tags to apply to the image
         required: false
+  push:
+      branches:
+        - test-branch
 
 jobs:
   build:
