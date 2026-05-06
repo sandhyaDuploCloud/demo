@@ -1,0 +1,26 @@
+name: Setup
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: The name of the service
+        required: true
+      tags:
+        description: The tags to apply to the image
+        required: false
+  push:
+      branches:
+        - test-branch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
+      DUPLO_HOST: ${{ vars.DUPLO_HOST  }}
+      DUPLO_TENANT: ${{ vars.DUPLO_TENANT }}
+    steps:
+    - name: Duplo Setup
+      uses: duplocloud/actions@node24-upgrade
+      with:
+        version: v0.4.3
