@@ -2,6 +2,9 @@ name: Update Image
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - node24-jt
     inputs:
       name:
         description: Service name

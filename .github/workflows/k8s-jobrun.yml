@@ -2,6 +2,9 @@ name: Run Kubernetes Job
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - node24-jt
     inputs:
       file:
         description: The file with a k8s job to run

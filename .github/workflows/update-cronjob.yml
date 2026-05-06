@@ -2,6 +2,9 @@ name: Update CronJob
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - node24-jt
     inputs:
       cronjob:
         description: CronJob name

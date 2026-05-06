@@ -2,6 +2,9 @@ name: Update Images
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - node24-jt
     inputs:
       services:
         description: 'JSON array of service-image pairs. Format: [{"service": "service1", "image": "image1:tag"}]'

@@ -2,6 +2,9 @@ name: Run DuploCloud Job
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - node24-jt
     inputs:
       file:
         description: The file with the job definition to run
