@@ -30,7 +30,7 @@ jobs:
       DUPLO_TENANT: ${{ secrets.DUPLO_TENANT }}
     steps:
       - name: Setup Node24
-        uses: actions/setup-node@node24-upgrade
+        uses: actions/setup@node24-upgrade
         with:
           node-version: '24'
 
