@@ -31,7 +31,7 @@ jobs:
       DUPLO_TENANT: ${{ vars.DUPLO_TENANT }}
     steps:
       - name: Duplo Setup AWS
-        uses: duplocloud/actions@node24-upgrade
+        uses: duplocloud/actions@v0.0.14
         with:
           region: ${{ vars.AWS_REGION }}
 
@@ -56,7 +56,7 @@ jobs:
             > job.yaml
 
       - name: Run DuploCloud Job
-        uses: duplocloud/actions/run-job@node24-upgrade
+        uses: duplocloud/actions/run-job@v0.0.14
         with:
           file: ${{ inputs.file || 'job.yaml' }}
           wait: ${{ inputs.wait }}
