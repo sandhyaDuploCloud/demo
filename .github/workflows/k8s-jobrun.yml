@@ -54,8 +54,6 @@ jobs:
             > job.yaml
 
       - name: Run Kubernetes Job
-        uses: duplocloud/actions/k8s-job@node24-upgrade
+        uses: duplocloud/actions/run-job@node24-upgrade
         with:
           file: ${{ inputs.file }}
-          timeout: ${{ inputs.timeout }}
-          cleanup_delay: ${{ inputs.cleanup_delay }}
