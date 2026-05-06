@@ -1,11 +1,10 @@
 name: Test mask-account-id
 
 on:
+
   workflow_dispatch:
     inputs:
-      branch_name:
-        description: 'Main or feature branch'
-        required: true
+      actionsbranch:
         default: 'main'
 
 
@@ -36,7 +35,7 @@ jobs:
       DUPLO_TENANT: "gittests"
     steps:
       - name: Setup Node24
-        uses: duplocloud/actions@${{ inputs.branch_name }}
+        uses: duplocloud/actions@${{ inputs.actionsbranch }}
         with:
           node-version: '24'
 
