@@ -20,12 +20,12 @@ jobs:
       DUPLO_TENANT: ${{ vars.DUPLO_TENANT }}
     steps:
       - name: Duplo Setup AWS
-        uses: duplocloud/actions@v0.0.14
+        uses: duplocloud/actions@node24-upgrade
         with:
           region: ${{ vars.AWS_REGION }}
 
       - name: Update CronJob
-        uses: duplocloud/actions/update-cronjob@v0.0.14
+        uses: duplocloud/actions/update-cronjob@node24-upgrade
         with:
           cronjob: ${{ inputs.cronjob }}
           image: ${{ inputs.image }}
