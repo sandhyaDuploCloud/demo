@@ -2,6 +2,11 @@ name: Azure Update Service
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - node24-jt
+    paths:
+      - '.github/workflows/azure-update-service.yml'
     inputs:
       service:
         description: Service name
