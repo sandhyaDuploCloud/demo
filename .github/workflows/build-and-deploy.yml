@@ -1,8 +1,6 @@
 name: Build and Deploy
 on:
-  push:
-    branches:
-      - master # branch to trigger on
+  workflow_dispatch:
 env:
   duplo_host: https://perf.duplocloud.net
   duplo_token: ${{ secrets.DUPLO_TOKEN }}
@@ -16,7 +14,7 @@ jobs:
     name: using GHA Jit update multiple servicesq
     runs-on: ubuntu-latest
     environment: 
-      name: perf
+      name: qa-aws
     env:
       duplo_host: https://perf.duplocloud.net
       duplo_token: ${{ secrets.DUPLO_TOKEN }}
