@@ -19,7 +19,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@node24-upgrade
+      uses: actions/checkout@v4
 
     - name: Install TF Dependencies
       uses: duplocloud/actions/setup-terraform@node24-upgrade
