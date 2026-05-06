@@ -14,11 +14,6 @@ on:
         description: Log level for duploctl output
         required: false
         default: "INFO"
-  push:
-    branches:
-      - node24-jt
-    paths:
-      - '.github/workflows/update-images.yml'
 
 jobs:
   update-images:
@@ -30,12 +25,12 @@ jobs:
       DUPLO_TENANT: ${{ vars.DUPLO_TENANT }}
     steps:
       - name: Duplo Setup AWS
-        uses: duplocloud/actions@v0.0.14
+        uses: duplocloud/actions@node24-upgrade
         with:
           region: ${{ vars.AWS_REGION }}
 
       - name: Update Images
-        uses: duplocloud/actions/update-images@v0.0.14
+        uses: duplocloud/actions/update-images@node24-upgrade
         with:
           services: ${{ inputs.services }}
           wait: ${{ inputs.wait }}
