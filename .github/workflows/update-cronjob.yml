@@ -2,11 +2,6 @@ name: Update CronJob
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - node24-jt
-    paths:
-      - '.github/workflows/update-cronjob.yml'
     inputs:
       cronjob:
         description: CronJob name
@@ -25,12 +20,12 @@ jobs:
       DUPLO_TENANT: ${{ vars.DUPLO_TENANT }}
     steps:
       - name: Duplo Setup AWS
-        uses: duplocloud/actions@node24-upgrade
+        uses: duplocloud/actions@v0.0.14
         with:
           region: ${{ vars.AWS_REGION }}
 
       - name: Update CronJob
-        uses: duplocloud/actions/update-cronjob@node24-upgrade
+        uses: duplocloud/actions/update-cronjob@v0.0.14
         with:
           cronjob: ${{ inputs.cronjob }}
           image: ${{ inputs.image }}
