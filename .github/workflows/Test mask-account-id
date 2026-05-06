@@ -1,0 +1,45 @@
+name: Test mask-account-id
+on:
+  workflow_dispatch:
+
+jobs:
+  test-masking:
+    runs-on: ubuntu-latest
+    environment: aws
+    strategy:
+      matrix:
+        mask_value:
+          - value: ""
+            label: "unset (default)"
+          - value: "true"
+            label: "true"
+          - value: "yes"
+            label: "yes"
+          - value: "Yes"
+            label: "Yes"
+          - value: "YES"
+            label: "YES"
+          - value: "false"
+            label: "false"
+          - value: "no"
+            label: "no"
+    env:
+      DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
+      DUPLO_HOST: ${{ secrets.DUPLO_HOST }}
+      DUPLO_TENANT: ${{ secrets.DUPLO_TENANT }}
+    steps:
+      - name: Setup Node24
+        uses: actions/setup-node@node24-upgrade
+        with:
+          node-version: '24'
+
+      - name: Duplo Setup AWS - ${{ matrix.mask_value.label }}
+        uses: duplocloud/actions@node24-test
+        with:
+          region: us-east-2
+          mask-account-id: ${{ matrix.mask_value.value }}
+
+      - name: Check Account ID Visibility - ${{ matrix.mask_value.label }}
+        run: |
+          echo "Testing mask-account-id: ${{ matrix.mask_value.label }}"
+          aws sts get-caller-identity
