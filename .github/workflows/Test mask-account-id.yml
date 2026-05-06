@@ -2,6 +2,11 @@ name: Test mask-account-id
 
 on:
   workflow_dispatch:
+    inputs:
+      branch_name:
+        description: 'main or feature branch'
+        required: true
+        default: 'main'
 
 jobs:
   test-masking:
@@ -30,12 +35,12 @@ jobs:
       DUPLO_TENANT: "gittests"
     steps:
       - name: Setup Node24
-        uses: duplocloud/actions@node24-upgrade
+        uses: duplocloud/actions@${{ inputs.branch_name }}
         with:
           node-version: '24'
 
       - name: Duplo Setup AWS - ${{ matrix.mask_value.label }}
-        uses: duplocloud/actions@node24-upgrade
+        uses: duplocloud/actions@${{ inputs.branch_name }}
         with:
           region: us-east-2
           mask-account-id: ${{ matrix.mask_value.value }}
