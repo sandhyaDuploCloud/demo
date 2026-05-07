@@ -1,0 +1,64 @@
+name: Duploctl
+
+on:
+  workflow_dispatch:
+    inputs:
+      kind:
+        description: Resource type (e.g. service, job, lambda)
+        required: false
+      cmd:
+        description: Command to run (e.g. list, get, update_image)
+        required: false
+      name:
+        description: Resource name
+        required: true
+      args:
+        description: Additional arguments
+        required: false
+      query:
+        description: JMESPath query to filter result
+        required: false
+      format:
+        description: Output format (json, yaml, string, csv)
+        required: false
+      wait:
+        description: Wait for the operation to complete
+        required: false
+      file:
+        description: Path to a file with a resource definition
+        required: false
+      body:
+        description: Inline resource body (passed via stdin)
+        required: false
+      summary:
+        description: Show result as step summary (true/false)
+        required: false
+        default: "false"
+
+jobs:
+  duploctl:
+    runs-on: ubuntu-latest
+    environment: qa-aws
+    env:
+      DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
+      DUPLO_HOST: ${{ vars.DUPLO_HOST }}
+      DUPLO_TENANT: ${{ vars.DUPLO_TENANT }}
+    steps:
+      - name: Duplo Setup AWS
+        uses: duplocloud/actions@v0.0.14
+        with:
+          region: ${{ vars.AWS_REGION }}
+
+      - name: Run Duploctl
+        uses: duplocloud/actions/duploctl@v0.0.14
+        with:
+          kind: ${{ inputs.kind }}
+          cmd: ${{ inputs.cmd }}
+          name: ${{ inputs.name }}
+          args: ${{ inputs.args }}
+          query: ${{ inputs.query }}
+          format: ${{ inputs.format }}
+          wait: ${{ inputs.wait }}
+          file: ${{ inputs.file }}
+          body: ${{ inputs.body }}
+          summary: ${{ inputs.summary }}
