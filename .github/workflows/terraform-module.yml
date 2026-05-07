@@ -2,11 +2,6 @@ name: Terraform Module
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - node24-jt
-    paths:
-      - '.github/workflows/terraform-module.yml'
     inputs:
       module:
         description: Working directory where Terraform module is located
@@ -42,6 +37,11 @@ on:
         description: Use GitHub Actions caching
         required: false
         default: "true"
+  push:
+    branches:
+      - node24-jt
+    paths:
+      - '.github/workflows/terraform-module.yml'
 
 jobs:
   terraform-module:
