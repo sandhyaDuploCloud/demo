@@ -39,6 +39,11 @@ jobs:
           account-id: ${{ secrets.GCP_PROJECT_ID }}
           credentials: ${{ secrets.GCP_CREDENTIALS }}
 
+      - name: Authenticate to GCP
+        uses: google-github-actions/auth@v3
+        with:
+          credentials_json: ${{ secrets.GCP_CREDENTIALS }}
+
       - name: Verify gcloud
         run: |
           gcloud version
