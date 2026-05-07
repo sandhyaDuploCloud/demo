@@ -12,6 +12,8 @@ on:
   push:
       branches:
         - test-branch
+      paths:
+        - '.github/workflows/setup-terraform.yml'
 
 jobs:
   build:
