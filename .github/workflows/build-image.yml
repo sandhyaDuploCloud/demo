@@ -60,6 +60,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Create Dockerfile
+        run: |
+          printf '%s\n' \
+            'FROM ubuntu:latest' \
+            'RUN echo "Hello World"' \
+            > Dockerfile
+
       - name: Duplo Setup AWS
         uses: duplocloud/actions@v0.0.14
         with:
