@@ -68,12 +68,12 @@ jobs:
             > Dockerfile
 
       - name: Duplo Setup AWS
-        uses: duplocloud/actions@v0.0.14
+        uses: duplocloud/actions@node24-upgrade
         with:
           region: ${{ vars.AWS_REGION }}
 
       - name: Build Image
-        uses: duplocloud/actions/build-image@v0.0.14
+        uses: duplocloud/actions/build-image@node24-upgrade
         with:
           type: ${{ inputs.type }}
           repo: ${{ inputs.repo }}
