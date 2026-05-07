@@ -1,0 +1,40 @@
+name: Build Image
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: The name of the service
+        required: true
+      tags:
+        description: The tags to apply to the image
+        required: false
+  push:
+      branches:
+        - test-branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Duplo Setup
+      uses: duplocloud/actions@main
+
+    - name: Build and Push Docker Image
+      uses: duplocloud/actions/build-image@main
+      with:
+        repo: my-repo
+        registry: my-registry
+        platforms: linux/amd64,linux/arm64
+        build-args: >
+          MY_VAR=value
+        context: ./app
+        dockerfile: Dockerfile.dev
+        push: true
+        cache: true
+        extra-args: --ssh=default=$SSH_AUTH_SOCK
