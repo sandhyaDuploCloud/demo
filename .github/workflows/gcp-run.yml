@@ -2,11 +2,6 @@ name: GCP Run
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - node24-jt
-    paths:
-      - '.github/workflows/gcp-run.yml'
     inputs:
       service:
         description: Service name
@@ -14,6 +9,11 @@ on:
       image:
         description: Image name
         required: true
+  push:
+    branches:
+      - node24-jt
+    paths:
+      - '.github/workflows/gcp-run.yml'
 
 jobs:
   gcp-run:
