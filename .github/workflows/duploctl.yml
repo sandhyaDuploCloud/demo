@@ -2,6 +2,11 @@ name: Duploctl
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - node24-jt
+    paths:
+      - '.github/workflows/duploctl.yml'
     inputs:
       kind:
         description: Resource type (e.g. service, job, lambda)
@@ -45,12 +50,12 @@ jobs:
       DUPLO_TENANT: ${{ vars.DUPLO_TENANT }}
     steps:
       - name: Duplo Setup AWS
-        uses: duplocloud/actions@v0.0.14
+        uses: duplocloud/actions@node24-upgrade
         with:
           region: ${{ vars.AWS_REGION }}
 
       - name: Run Duploctl
-        uses: duplocloud/actions/duploctl@v0.0.14
+        uses: duplocloud/actions/duploctl@node24-upgrade
         with:
           kind: ${{ inputs.kind }}
           cmd: ${{ inputs.cmd }}
