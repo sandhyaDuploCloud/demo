@@ -1,0 +1,46 @@
+name: GCP Run
+
+on:
+  workflow_dispatch:
+    inputs:
+      service:
+        description: Service name
+        required: true
+      image:
+        description: Image name
+        required: true
+
+jobs:
+  gcp-run:
+    runs-on: ubuntu-latest
+    environment: qa-gcp
+    env:
+      DUPLO_TOKEN: ${{ secrets.GCP_DUPLO_TOKEN }}
+      DUPLO_HOST: https://qa-gcp.duplocloud.net
+      DUPLO_TENANT: auto-02
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node24
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Duplo Setup GCP
+        uses: duplocloud/actions@node24-upgrade
+        with:
+          region: us-central1
+          account-id: ${{ secrets.GCP_PROJECT_ID }}
+          credentials: ${{ secrets.GCP_CREDENTIALS }}
+
+      - name: Verify gcloud
+        run: |
+          gcloud version
+          gcloud auth list
+
+      - name: Update Service
+        uses: duplocloud/actions/update-service@node24-upgrade
+        with:
+          service: ${{ inputs.service }}
+          image: ${{ inputs.image }}
