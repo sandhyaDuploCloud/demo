@@ -20,7 +20,6 @@ jobs:
       DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
       DUPLO_HOST: ${{ vars.DUPLO_HOST }}
       DUPLO_TENANT: ${{ vars.DUPLO_TENANT }}
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
 
