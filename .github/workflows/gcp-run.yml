@@ -33,7 +33,7 @@ jobs:
           node-version: '24'
 
       - name: Duplo Setup GCP
-        uses: duplocloud/actions@node24-upgrade
+        uses: duplocloud/actions@v0.0.14
         with:
           region: us-central1
           account-id: ${{ secrets.GCP_PROJECT_ID }}
@@ -50,7 +50,7 @@ jobs:
           gcloud auth list
 
       - name: Update Service
-        uses: duplocloud/actions/update-service@node24-upgrade
+        uses: duplocloud/actions/update-service@v0.0.14
         with:
           service: ${{ inputs.service }}
           image: ${{ inputs.image }}
