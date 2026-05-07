@@ -51,8 +51,8 @@ jobs:
           region: ${{ vars.AWS_REGION }}
           admin: true
 
-      - name: Setup Terraform Module
-        uses: duplocloud/actions/terraform-module@node24-upgrade
+      - name: Setup Terraform
+        uses: duplocloud/actions/setup-terraform@node24-upgrade
 
       - name: Terraform Exec
         uses: duplocloud/actions/terraform-exec@node24-upgrade
