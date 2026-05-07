@@ -2,6 +2,11 @@ name: Terraform Exec
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - node24-jt
+    paths:
+      - '.github/workflows/terraform-exec.yml'
     inputs:
       module:
         description: Working directory where Terraform commands will be run
