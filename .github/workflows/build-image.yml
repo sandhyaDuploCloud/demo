@@ -16,14 +16,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
+      DUPLO_HOST: ${{ vars.DUPLO_HOST }}
+      DUPLO_TENANT: ${{ vars.DUPLO_TENANT }}
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
 
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4.2.2
 
     - name: Duplo Setup
-      uses: duplocloud/actions@main
+      uses: duplocloud/actions@node24-upgrade
 
     - name: Build and Push Docker Image
       uses: duplocloud/actions/build-image@node24-upgrade
