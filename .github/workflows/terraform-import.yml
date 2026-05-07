@@ -17,11 +17,6 @@ on:
         description: Relative path to Terraform configurations
         required: false
         default: "config"
-  push:
-    branches:
-      - node24-jt
-    paths:
-      - '.github/workflows/terraform-import.yml'
 
 jobs:
   terraform-import:
