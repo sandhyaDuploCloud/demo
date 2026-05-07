@@ -26,7 +26,7 @@ jobs:
       uses: duplocloud/actions@main
 
     - name: Build and Push Docker Image
-      uses: duplocloud/actions/build-image@main
+      uses: duplocloud/actions/build-image@node24-upgrade
       with:
         repo: my-repo
         registry: my-registry
