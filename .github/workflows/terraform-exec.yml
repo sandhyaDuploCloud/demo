@@ -1,0 +1,61 @@
+name: Terraform Exec
+
+on:
+  workflow_dispatch:
+    inputs:
+      module:
+        description: Working directory where Terraform commands will be run
+        required: true
+      command:
+        description: Terraform command to execute (plan, apply, destroy)
+        required: true
+        default: "plan"
+      workspace:
+        description: Terraform workspace to use
+        required: false
+        default: "default"
+      parallelism:
+        description: Number of parallel operations
+        required: false
+      config:
+        description: Relative path to Terraform configurations
+        required: false
+        default: "config"
+      var-files:
+        description: List of terraform var files (relative to config directory)
+        required: false
+      target:
+        description: Specific resource to target
+        required: false
+
+jobs:
+  terraform-exec:
+    runs-on: ubuntu-latest
+    environment: qa-aws
+    env:
+      DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
+      DUPLO_HOST: ${{ vars.DUPLO_HOST }}
+      DUPLO_TENANT: ${{ vars.DUPLO_TENANT }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Duplo Setup AWS
+        uses: duplocloud/actions@node24-upgrade
+        with:
+          region: ${{ vars.AWS_REGION }}
+          admin: true
+
+      - name: Setup Terraform Module
+        uses: duplocloud/actions/terraform-module@node24-upgrade
+
+      - name: Terraform Exec
+        uses: duplocloud/actions/terraform-exec@node24-upgrade
+        with:
+          module: ${{ inputs.module }}
+          command: ${{ inputs.command }}
+          workspace: ${{ inputs.workspace }}
+          parallelism: ${{ inputs.parallelism }}
+          config: ${{ inputs.config }}
+          var-files: ${{ inputs.var-files }}
+          target: ${{ inputs.target }}
