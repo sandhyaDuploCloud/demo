@@ -20,13 +20,13 @@ jobs:
       DUPLO_TENANT: jt0605n
     steps:
       - name: Duplo Setup Azure
-        uses: duplocloud/actions@v0.0.14
+        uses: duplocloud/actions@node24-upgrade
         with:
           account-id: ${{ vars.AZURE_DIRECTORY_ID }}
           credentials: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Update Service
-        uses: duplocloud/actions/update-service@v0.0.14
+        uses: duplocloud/actions/update-service@node24-upgrade
         with:
           service: ${{ inputs.service }}
           image: ${{ inputs.image }}
