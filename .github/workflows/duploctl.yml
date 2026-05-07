@@ -2,11 +2,6 @@ name: Duploctl
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - node24-jt
-    paths:
-      - '.github/workflows/duploctl.yml'
     inputs:
       kind:
         description: Resource type (e.g. service, job, lambda)
@@ -39,6 +34,11 @@ on:
         description: Show result as step summary (true/false)
         required: false
         default: "false"
+  push:
+    branches:
+      - node24-jt
+    paths:
+      - '.github/workflows/duploctl.yml'
 
 jobs:
   duploctl:
