@@ -17,7 +17,7 @@ jobs:
     env:
       DUPLO_TOKEN: ${{ secrets.AZURE_DUPLO_TOKEN }}
       DUPLO_HOST: https://qa2-azure.duplocloud.net/
-      DUPLO_TENANT: ${{ vars.DUPLO_TENANT }}
+      DUPLO_TENANT: jt0605n
     steps:
       - name: Duplo Setup Azure
         uses: duplocloud/actions@v0.0.14
