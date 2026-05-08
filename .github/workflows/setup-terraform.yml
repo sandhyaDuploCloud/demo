@@ -10,8 +10,6 @@ on:
         description: The tags to apply to the image
         required: false
   push:
-      branches:
-        - test-branch
       paths:
         - '.github/workflows/setup-terraform.yml'
 

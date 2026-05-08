@@ -10,8 +10,6 @@ on:
         description: Image name
         required: true
   push:
-    branches:
-      - test-branch
     paths:
       - '.github/workflows/mask-account-id.yml'
 
