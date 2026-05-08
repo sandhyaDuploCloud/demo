@@ -22,6 +22,11 @@ jobs:
       DUPLO_HOST: ${{ vars.DUPLO_HOST  }}
       DUPLO_TENANT: ${{ vars.DUPLO_TENANT }}
     steps:
+    - name: Setup Node24
+      uses: actions/setup-node@v5
+      with:
+        node-version: '24'
+
     - name: Duplo Setup
       uses: duplocloud/actions@v0.0.14
       with:
