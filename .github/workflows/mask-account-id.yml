@@ -11,7 +11,7 @@ on:
         required: true
   push:
     branches:
-      - node24-jt
+      - test-branch
     paths:
       - '.github/workflows/mask-account-id.yml'
 
