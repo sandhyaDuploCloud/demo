@@ -29,7 +29,7 @@ jobs:
         node-version: '24'
 
     - name: Install TF Dependencies
-      uses: duplocloud/actions/setup-terraform@v0.0.14
+      uses: duplocloud/actions/setup-terraform@node24-upgrade
       with:
         tf_cache_dir: ~/.terraform.d/plugin-cache
         tflint_cache_dir: ~/.tflint.d/plugins
