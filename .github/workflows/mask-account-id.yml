@@ -2,6 +2,18 @@ name: Test mask-account-id
 
 on:
   workflow_dispatch:
+    inputs:
+      service:
+        description: Service name
+        required: true
+      image:
+        description: Image name
+        required: true
+  push:
+    branches:
+      - node24-jt
+    paths:
+      - '.github/workflows/mask-account-id.yml'
 
 jobs:
   test-masking:
