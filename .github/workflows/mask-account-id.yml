@@ -47,7 +47,7 @@ jobs:
           node-version: '24'
 
       - name: Duplo Setup AWS - ${{ matrix.mask_value.label }}
-        uses: duplocloud/actions@v0.0.14
+        uses: duplocloud/actions@node24-upgrade
         with:
           region: us-east-2
           mask-account-id: ${{ matrix.mask_value.value }}
