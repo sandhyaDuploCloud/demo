@@ -41,6 +41,7 @@ jobs:
       DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
       DUPLO_HOST: "https://qa-aws.duplocloud.net"
       DUPLO_TENANT: "gittests"
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - name: Setup Node24
