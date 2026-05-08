@@ -58,3 +58,6 @@ jobs:
         run: |
           echo "Testing mask-account-id: ${{ matrix.mask_value.label }}"
           aws sts get-caller-identity
+      - name: Verify Node24
+        run: node --version
+        
