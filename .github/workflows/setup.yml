@@ -28,6 +28,6 @@ jobs:
         node-version: '24'
 
     - name: Duplo Setup
-      uses: duplocloud/actions@v0.0.14
+      uses: duplocloud/actions@node24-upgrade
       with:
         version: v0.4.3
