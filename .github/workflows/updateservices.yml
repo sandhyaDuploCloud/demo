@@ -7,11 +7,11 @@ jobs:
     name: Update Service
     runs-on: ubuntu-latest
     environment: 
-      name: qa-aws
+      name: perf
     env:
       DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
       DUPLO_HOST: https://perf.duplocloud.net
-      DUPLO_TENANT: qa1
+      DUPLO_TENANT: maja1105
     steps: 
     
     # install and login to the cloud
