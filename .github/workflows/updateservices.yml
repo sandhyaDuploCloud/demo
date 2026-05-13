@@ -81,7 +81,7 @@ jobs:
             },
               {
               "service": "serv11",
-              "image": "myregistry/frontend:v1.2.4"
+              "image": "nginx:perl"
             },
               {
               "service": "serv12",
