@@ -1,6 +1,6 @@
 name: Update Service using update-image
-on:                  
-  pull_request:
+on:
+  push:
     branches:
       - master
   workflow_dispatch:
