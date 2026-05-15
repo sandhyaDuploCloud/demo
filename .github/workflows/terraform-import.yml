@@ -1,0 +1,52 @@
+name: Terraform Import
+
+on:
+  workflow_dispatch:
+    inputs:
+      module:
+        description: Working directory where Terraform commands will be run
+        required: true
+      resources:
+        description: List of resource IDs to import (e.g. aws_instance.example=i-1234567890)
+        required: true
+      workspace:
+        description: Terraform workspace to use
+        required: false
+        default: "default"
+      config:
+        description: Relative path to Terraform configurations
+        required: false
+        default: "config"
+
+jobs:
+  terraform-import:
+    runs-on: ubuntu-latest
+    environment: qa-aws
+    env:
+      DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
+      DUPLO_HOST: ${{ vars.DUPLO_HOST }}
+      DUPLO_TENANT: ${{ vars.DUPLO_TENANT }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Duplo Setup AWS
+        uses: duplocloud/actions@node24-upgrade
+        with:
+          region: ${{ vars.AWS_REGION }}
+          admin: true
+
+      - name: Setup Terraform
+        uses: duplocloud/actions/setup-terraform@node24-upgrade
+
+      - name: Terraform Init
+        run: terraform init
+        working-directory: ${{ inputs.module }}
+
+      - name: Terraform Import
+        uses: duplocloud/actions/terraform-import@node24-upgrade
+        with:
+          module: ${{ inputs.module }}
+          resources: ${{ inputs.resources }}
+          workspace: ${{ inputs.workspace }}
+          config: ${{ inputs.config }}
