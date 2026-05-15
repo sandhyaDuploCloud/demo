@@ -2,6 +2,16 @@ name: Test mask-account-id
 
 on:
   workflow_dispatch:
+    inputs:
+      service:
+        description: Service name
+        required: true
+      image:
+        description: Image name
+        required: true
+  push:
+    paths:
+      - '.github/workflows/mask-account-id.yml'
 
 jobs:
   test-masking:
@@ -32,7 +42,7 @@ jobs:
 
     steps:
       - name: Setup Node24
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6.4.0
         with:
           node-version: '24'
 
@@ -46,3 +56,4 @@ jobs:
         run: |
           echo "Testing mask-account-id: ${{ matrix.mask_value.label }}"
           aws sts get-caller-identity
+        
