@@ -92,7 +92,7 @@ jobs:
             },
                {
               "service": "serv13",
-              "image": "myregistry/frontend:v1.2.3"
+              "image": "myregistry/frontend:v1.2.5"
             },
               {
               "service": "serv14",
