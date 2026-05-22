@@ -48,6 +48,6 @@ jobs:
               { "Name": "serv17", "Image": "nginx:latest2" },
               { "Name": "serv18", "Image": "nginx:latest1" },
               { "Name": "serv19", "Image": "nginx:latest12" },
-              { "Name": "serv20", "Image": "nginx:lates" }
+              { "Name": "serv20", "Image": "nginx:latest" }
             ]
 
