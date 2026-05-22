@@ -104,7 +104,7 @@ jobs:
             },
               {
               "service": "serv16",
-              "image": "myregistry/frontend:v1.2.4"
+              "image": "myregistry/frontend:v1.2.3"
             },
               {
               "service": "serv17",
