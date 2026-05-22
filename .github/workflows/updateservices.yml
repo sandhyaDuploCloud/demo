@@ -14,7 +14,7 @@ jobs:
     env:
       DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
       DUPLO_HOST: https://perf.duplocloud.net
-      DUPLO_TENANT: maja1105
+      DUPLO_TENANT: mj3
     steps: 
     
     # install and login to the cloud
