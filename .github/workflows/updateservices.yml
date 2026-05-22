@@ -112,7 +112,7 @@ jobs:
             },
                {
               "service": "serv18",
-              "image": "myregistry/frontend:v1.2.3"
+              "image": "myregistry/frontend:v1.2.5"
             },
               {
               "service": "serv19",
