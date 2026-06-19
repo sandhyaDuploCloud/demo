@@ -1,0 +1,90 @@
+name: Build Image
+
+on:
+  workflow_dispatch:
+    inputs:
+      type:
+        description: Build type (docker, buildx, compose, bake)
+        required: false
+        default: "docker"
+      repo:
+        description: Repository name (defaults to git repo name)
+        required: false
+      registry:
+        description: Registry name (uses default ECR if on AWS)
+        required: false
+      platforms:
+        description: Build multi-arch image with BuildX (e.g. linux/amd64,linux/arm64)
+        required: false
+      build-args:
+        description: List of build args (key=value)
+        required: false
+      tags:
+        description: Extra space delimited tags to add to the image
+        required: false
+      tag-strategy:
+        description: Computed tag strategy (DATE, GIT_REF, GIT_SHA)
+        required: false
+        default: "GIT_REF GIT_SHA"
+      target:
+        description: Target stage to build
+        required: false
+      context:
+        description: Build context
+        required: false
+        default: "."
+      dockerfile:
+        description: Dockerfile path
+        required: false
+      file:
+        description: Buildfile path (for compose or bake)
+        required: false
+      push:
+        description: Push image to registry
+        required: false
+        default: "false"
+      cache:
+        description: Cache image layers if buildx enabled
+        required: false
+        default: "true"
+
+jobs:
+  build-image:
+    runs-on: ubuntu-latest
+    environment: qa-aws
+    env:
+      DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
+      DUPLO_HOST: ${{ vars.DUPLO_HOST }}
+      DUPLO_TENANT: ${{ vars.DUPLO_TENANT }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create Dockerfile
+        run: |
+          printf '%s\n' \
+            'FROM ubuntu:latest' \
+            'RUN echo "Hello World"' \
+            > Dockerfile
+
+      - name: Duplo Setup AWS
+        uses: duplocloud/actions@node24-upgrade
+        with:
+          region: ${{ vars.AWS_REGION }}
+
+      - name: Build Image
+        uses: duplocloud/actions/build-image@node24-upgrade
+        with:
+          type: ${{ inputs.type }}
+          repo: ${{ inputs.repo }}
+          registry: ${{ inputs.registry }}
+          platforms: ${{ inputs.platforms }}
+          build-args: ${{ inputs.build-args }}
+          tags: ${{ inputs.tags }}
+          tag-strategy: ${{ inputs.tag-strategy }}
+          target: ${{ inputs.target }}
+          context: ${{ inputs.context }}
+          dockerfile: ${{ inputs.dockerfile }}
+          file: ${{ inputs.file }}
+          push: ${{ inputs.push }}
+          cache: ${{ inputs.cache }}
