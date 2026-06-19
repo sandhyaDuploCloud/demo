@@ -1,0 +1,35 @@
+name: Setup Terraform
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: The name of the service
+        required: true
+      tags:
+        description: The tags to apply to the image
+        required: false
+  push:
+      paths:
+        - '.github/workflows/setup-terraform.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v6.0.2
+
+    - name: Setup Node24
+      uses: actions/setup-node@v5
+      with:
+        node-version: '24'
+
+    - name: Install TF Dependencies
+      uses: duplocloud/actions/setup-terraform@node24-upgrade
+      with:
+        tf_cache_dir: ~/.terraform.d/plugin-cache
+        tflint_cache_dir: ~/.tflint.d/plugins
+        tflint_version: v0.44.1
+        terraform_version: 1.6.1
