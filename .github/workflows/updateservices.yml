@@ -31,9 +31,6 @@ jobs:
       with:
         version: latest
 
-    - name: Install duploctl from main
-      run: pip install git+https://github.com/duplocloud/duploctl.git@main
-
     # uses duploctl from above
     - name: Update Service
       uses: duplocloud/actions/update-image@main
@@ -56,7 +53,7 @@ jobs:
           [
              
             {
-              "service": "serv1",
+              "service": "serv3",
               "image": "nginx:perl"
             },
               {
