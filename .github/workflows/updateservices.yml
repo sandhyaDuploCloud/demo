@@ -1,9 +1,17 @@
 name: Update Service using update-image
 on:
-  push:
-    branches:
-      - master
   workflow_dispatch:
+    inputs:
+      name:
+        description: The name of the service
+        required: true
+      tags:
+        description: The tags to apply to the image
+        required: false
+  push:
+      paths:
+        - '.github/workflows/updateservices.yml'
+  
 
 jobs:
   update_service:
