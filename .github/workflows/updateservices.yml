@@ -1,9 +1,17 @@
 name: Update Service using update-image
 on:
-  push:
-    branches:
-      - master
   workflow_dispatch:
+    inputs:
+      name:
+        description: The name of the service
+        required: true
+      tags:
+        description: The tags to apply to the image
+        required: false
+  push:
+      paths:
+        - '.github/workflows/updateservices.yml'
+  
 
 jobs:
   update_service:
@@ -19,11 +27,16 @@ jobs:
     
     # install and login to the cloud
     - name: Duplo Setup
-      uses: duplocloud/actions@node24-upgrade
+      uses: duplocloud/actions@main
+      with:
+        version: latest
+
+    - name: Install duploctl from main
+      run: pip install git+https://github.com/duplocloud/duploctl.git@main
 
     # uses duploctl from above
     - name: Update Service
-      uses: duplocloud/actions/update-image@node24-upgrade
+      uses: duplocloud/actions/update-image@main
       with:
         name: serv3
         image: nginx:123
@@ -37,13 +50,13 @@ jobs:
         aws-region: us-west-2     
 
     - name: Update Multiple Images
-      uses: duplocloud/actions/update-images@node24-upgrade
+      uses: duplocloud/actions/update-images@main
       with:
         services: |
           [
              
             {
-              "service": "serv1",
+              "service": "serv3",
               "image": "nginx:perl"
             },
               {
@@ -61,66 +74,6 @@ jobs:
               {
               "service": "serv5",
               "image": "nginx:1.27.2"
-            },
-              {
-              "service": "serv6",
-              "image": "nginx:1.25.4"
-            },
-                 {
-              "service": "serv7",
-              "image": "nginx:perl"
-            },
-              {
-              "service": "serv8",
-              "image": "nginx:latest"
-            },
-              {
-              "service": "serv9",
-              "image": "nginx:alpine"
-            },
-               {
-              "service": "serv10",
-              "image": "nginx:perl"
-            },
-              {
-              "service": "serv11",
-              "image": "nginx:perl"
-            },
-              {
-              "service": "serv12",
-              "image": "myregistry/frontend:v1.2.3"
-            },
-               {
-              "service": "serv13",
-              "image": "myregistry/frontend:v1.2.5"
-            },
-              {
-              "service": "serv14",
-              "image": "myregistry/frontend:v1.2.3"
-            },
-                  {
-              "service": "serv15",
-              "image": "myregistry/frontend:v1.2.3"
-            },
-              {
-              "service": "serv16",
-              "image": "myregistry/frontend:v1.2.3"
-            },
-              {
-              "service": "serv17",
-              "image": "myregistry/frontend:v1.2.3"
-            },
-               {
-              "service": "serv18",
-              "image": "myregistry/frontend:v1.2.5"
-            },
-              {
-              "service": "serv19",
-              "image": "nginx:alpine"
-            },
-                 {
-              "service": "serv20",
-              "image": "myregistry/frontend:v1.2.3"
             }
             
           
