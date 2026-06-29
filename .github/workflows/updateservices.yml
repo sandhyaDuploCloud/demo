@@ -56,7 +56,7 @@ jobs:
           [
              
             {
-              "service": "serv3",
+              "service": "serv1",
               "image": "nginx:perl"
             },
               {
