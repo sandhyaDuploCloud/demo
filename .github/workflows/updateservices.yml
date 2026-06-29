@@ -18,10 +18,10 @@ jobs:
     name: Update Service
     runs-on: ubuntu-latest
     environment: 
-      name: uat-aws
+      name: qa-gcp
     env:
       DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
-      DUPLO_HOST: https://uat-aws.duplocloud.net
+      DUPLO_HOST: https://qa-gcp.duplocloud.net
       DUPLO_TENANT: ar29
     steps: 
     
