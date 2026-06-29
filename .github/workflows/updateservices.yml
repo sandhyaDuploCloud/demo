@@ -28,6 +28,8 @@ jobs:
     # install and login to the cloud
     - name: Duplo Setup
       uses: duplocloud/actions@node24-upgrade
+      with:
+        version: latest
 
     # uses duploctl from above
     - name: Update Service
