@@ -18,7 +18,7 @@ jobs:
     name: Update Service
     runs-on: ubuntu-latest
     environment: 
-      name: perf
+      name: uat-aws
     env:
       DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
       DUPLO_HOST: https://uat-aws.duplocloud.net
