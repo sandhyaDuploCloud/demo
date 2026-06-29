@@ -47,7 +47,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.GCP_PROJECT_ID }}
         aws-secret-access-key: ${{ secrets.GCP_CREDENTIALS }}
-        aws-region: us-west-2     
+        aws-region: us-west-4     
 
     - name: Update Multiple Images
       uses: duplocloud/actions/update-images@main
