@@ -42,12 +42,10 @@ jobs:
         image: nginx:123
         type: service
 
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v6
+    - name: Authenticate to GCP
+      uses: google-github-actions/auth@v3
       with:
-        aws-access-key-id: ${{ secrets.GCP_PROJECT_ID }}
-        aws-secret-access-key: ${{ secrets.GCP_CREDENTIALS }}
-        aws-region: us-west-2     
+        credentials_json: ${{ secrets.GCP_CREDENTIALS }}
 
     - name: Update Multiple Images
       uses: duplocloud/actions/update-images@main
