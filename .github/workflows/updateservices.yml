@@ -31,9 +31,6 @@ jobs:
       with:
         version: latest
 
-    - name: Install duploctl from PR branch
-      run: pip install git+https://github.com/duplocloud/duploctl.git@fix/update-image-v2-fallback
-
     # uses duploctl from above
     - name: Update Service
       uses: duplocloud/actions/update-image@main
