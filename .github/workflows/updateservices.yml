@@ -14,7 +14,7 @@ jobs:
     env:
       DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
       DUPLO_HOST: https://uat-aws.duplocloud.net
-      DUPLO_TENANT: mj3
+      DUPLO_TENANT: ar29
     steps: 
     
     # install and login to the cloud
