@@ -13,7 +13,7 @@ jobs:
       name: uat-aws
     env:
       DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
-      DUPLO_HOST: https://perf.duplocloud.net
+      DUPLO_HOST: https://uat-aws.duplocloud.net
       DUPLO_TENANT: mj3
     steps: 
     
