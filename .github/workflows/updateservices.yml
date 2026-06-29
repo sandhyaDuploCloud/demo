@@ -74,66 +74,6 @@ jobs:
               {
               "service": "serv5",
               "image": "nginx:1.27.2"
-            },
-              {
-              "service": "serv6",
-              "image": "nginx:1.25.4"
-            },
-                 {
-              "service": "serv7",
-              "image": "nginx:perl"
-            },
-              {
-              "service": "serv8",
-              "image": "nginx:latest"
-            },
-              {
-              "service": "serv9",
-              "image": "nginx:alpine"
-            },
-               {
-              "service": "serv10",
-              "image": "nginx:perl"
-            },
-              {
-              "service": "serv11",
-              "image": "nginx:perl"
-            },
-              {
-              "service": "serv12",
-              "image": "myregistry/frontend:v1.2.3"
-            },
-               {
-              "service": "serv13",
-              "image": "myregistry/frontend:v1.2.5"
-            },
-              {
-              "service": "serv14",
-              "image": "myregistry/frontend:v1.2.3"
-            },
-                  {
-              "service": "serv15",
-              "image": "myregistry/frontend:v1.2.3"
-            },
-              {
-              "service": "serv16",
-              "image": "myregistry/frontend:v1.2.3"
-            },
-              {
-              "service": "serv17",
-              "image": "myregistry/frontend:v1.2.3"
-            },
-               {
-              "service": "serv18",
-              "image": "myregistry/frontend:v1.2.5"
-            },
-              {
-              "service": "serv19",
-              "image": "nginx:alpine"
-            },
-                 {
-              "service": "serv20",
-              "image": "myregistry/frontend:v1.2.3"
             }
             
           
