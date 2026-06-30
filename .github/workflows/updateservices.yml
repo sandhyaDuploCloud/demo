@@ -18,10 +18,10 @@ jobs:
     name: Update Service
     runs-on: ubuntu-latest
     environment: 
-      name: qa-gcp
+      name: qa-gcp-newinstall
     env:
       DUPLO_TOKEN: ${{ secrets.GCP_DUPLO_TOKEN }}
-      DUPLO_HOST: https://qa-gcp.duplocloud.net
+      DUPLO_HOST: https://qa-gcp-newinstall.duplocloud.net
       DUPLO_TENANT: ar29
     steps: 
     
