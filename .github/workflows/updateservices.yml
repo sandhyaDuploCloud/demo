@@ -22,7 +22,7 @@ jobs:
     env:
       DUPLO_TOKEN: ${{ secrets.GCP_DUPLO_TOKEN }}
       DUPLO_HOST: https://qa-gcp-newinstall.duplocloud.net
-      DUPLO_TENANT: ar29
+      DUPLO_TENANT: ar30
     steps: 
     
     # install and login to the cloud
