@@ -39,7 +39,7 @@ jobs:
       uses: duplocloud/actions/update-image@main
       with:
         name: serv3
-        image: nginx:1.27
+        image: nginx:1.26
         type: service
 
     - name: Authenticate to GCP
