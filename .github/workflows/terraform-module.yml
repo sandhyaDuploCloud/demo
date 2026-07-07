@@ -1,0 +1,78 @@
+name: Terraform Module
+
+on:
+  workflow_dispatch:
+    inputs:
+      module:
+        description: Working directory where Terraform module is located
+        required: true
+      lint:
+        description: Run TFLint
+        required: false
+        default: "true"
+      validate:
+        description: Run terraform validate
+        required: false
+        default: "true"
+      fmt:
+        description: Run terraform fmt check
+        required: false
+        default: "true"
+      test:
+        description: Run terraform test
+        required: false
+        default: "true"
+      test_dir:
+        description: Test directory (defaults to 'tests')
+        required: false
+      review:
+        description: Do review checks on module
+        required: false
+        default: "true"
+      prefix:
+        description: tfstate S3 bucket prefix
+        required: false
+        default: "duplo-tfstate"
+      caching:
+        description: Use GitHub Actions caching
+        required: false
+        default: "true"
+  push:
+    branches:
+      - node24-jt
+    paths:
+      - '.github/workflows/terraform-module.yml'
+
+jobs:
+  terraform-module:
+    runs-on: ubuntu-latest
+    environment: qa-aws
+    env:
+      DUPLO_TOKEN: ${{ secrets.DUPLO_TOKEN }}
+      DUPLO_HOST: ${{ vars.DUPLO_HOST }}
+      DUPLO_TENANT: ${{ vars.DUPLO_TENANT }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Duplo Setup AWS
+        uses: duplocloud/actions@v0.0.14
+        with:
+          region: ${{ vars.AWS_REGION }}
+          admin: true
+
+      - name: Setup Terraform
+        uses: duplocloud/actions/setup-terraform@v0.0.14
+
+      - name: Terraform Module
+        uses: duplocloud/actions/terraform-module@v0.0.14
+        with:
+          module: ${{ inputs.module }}
+          lint: ${{ inputs.lint }}
+          validate: ${{ inputs.validate }}
+          fmt: ${{ inputs.fmt }}
+          test: ${{ inputs.test }}
+          test_dir: ${{ inputs.test_dir }}
+          review: ${{ inputs.review }}
+          prefix: ${{ inputs.prefix }}
+          caching: ${{ inputs.caching }}
