@@ -1,0 +1,19 @@
+{
+  "resourceType": "S3Bucket",
+  "subType": "s3-bucket",
+  "label": "S3 Bucket",
+  "icon": "database",
+  "idField": "id",
+  "groups": [
+    {
+      "name": "Result",
+      "fields": [
+        { "type": "single", "key": "bucketName", "label": "Bucket Name", "value": "result.bucketName", "hideWhenEmpty": true },
+        { "type": "single", "key": "bucketArn", "label": "Bucket ARN", "value": "result.bucketArn", "hideWhenEmpty": true, "mono": true },
+        { "type": "single", "key": "region", "label": "Region", "value": "result.region", "hideWhenEmpty": true },
+        { "type": "single", "key": "publicAccess", "label": "Public Access", "value": "result.publicAccess", "hideWhenEmpty": true },
+        { "type": "single", "key": "dateCreated", "label": "Date Created", "value": "result.dateCreated", "hideWhenEmpty": true }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "manifestVersion": "1.0",
+  "id": "duplo.extensions.s3bucket",
+  "name": "S3 Bucket",
+  "version": "0.1.0",
+
+  "sdkVersion": "REPLACED_BY_SKILL_FROM_sdk-version_ENDPOINT",
+  "backend": {
+    "assemblyDir": "duplo.extensions.s3bucket/0.1.0/backend",
+    "entryAssembly": "Duplo.Extension.S3Bucket.dll"
+  },
+
+  "resources": [
+    {
+      "ticketOriginType": "S3Bucket",
+      "restSegment": "extensions/s3-buckets",
+      "subType": "s3-bucket",
+      "archetype": "typed",
+      "registrar": "DevOpsResource",
+      "entityType": "Duplo.Extensions.S3Bucket.S3Bucket",
+      "specType": "Duplo.Extensions.S3Bucket.S3BucketSpec",
+      "resultType": "Duplo.Extensions.S3Bucket.S3BucketResult",
+      "hooksType": "Duplo.Extensions.S3Bucket.S3BucketHooks",
+      "serviceType": "Duplo.Extensions.S3Bucket.S3BucketService"
+    }
+  ],
+
+  "skills": [
+    { "folder": "duplo.extensions.s3bucket/0.1.0/skills/provision-s3-bucket", "isBuiltIn": true }
+  ],
+  "skillMappings": [
+    {
+      "originType": "S3Bucket",
+      "subType": "s3-bucket",
+      "skillNames": ["provision-s3-bucket"],
+      "timeout": { "provision": 300, "deprovision": 180 }
+    }
+  ],
+
+  "frontend": {
+    "remote": {
+      "remoteName": "duploExtensionS3Bucket",
+      "remoteEntry": "/v1/aiservicedesk/extensions/duplo.extensions.s3bucket/fe/remoteEntry.json",
+      "exposedModule": "./Extension",
+      "type": "module"
+    },
+    "menus": [
+      {
+        "id": "duplo.extensions.s3bucket-aws",
+        "title": "AWS",
+        "type": "collapsible-section",
+        "children": [
+          {
+            "id": "duplo.extensions.s3bucket-s3-buckets",
+            "title": "S3 Buckets",
+            "type": "item",
+            "matIcon": "database",
+            "relativeUrl": "extensions/s3-buckets",
+            "order": 10
+          }
+        ]
+      }
+    ],
+    "routes": [
+      { "path": "extensions/s3-buckets", "resourceType": "S3Bucket", "subType": "s3-bucket" }
+    ]
+  }
+}
