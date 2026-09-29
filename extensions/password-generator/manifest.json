@@ -42,7 +42,7 @@
             "id": "duplo.extensions.passwordgenerator-password-generators",
             "title": "Password Generators",
             "type": "item",
-            "matIcon": "key",
+            "matIcon": "dice-multiple",
             "relativeUrl": "extensions/password-generators",
             "order": 10
           }

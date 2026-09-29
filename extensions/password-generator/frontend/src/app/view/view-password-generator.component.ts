@@ -12,7 +12,7 @@ import { StatusBadgeComponent } from '../shared/status-badge.component';
 // the secret is rendered by this component's own reveal row below instead of as a plain tile.
 const PWGEN_VIEW_TEMPLATE: any = {
   resourceType: 'PasswordGenerator', subType: 'password-generator', label: 'Password Generator',
-  icon: 'key', idField: 'id',
+  icon: 'dice-multiple', idField: 'id',
   groups: [{
     name: 'Result',
     fields: [
