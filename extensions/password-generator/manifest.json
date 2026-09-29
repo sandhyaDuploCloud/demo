@@ -1,0 +1,56 @@
+{
+  "manifestVersion": "1.0",
+  "id": "duplo.extensions.passwordgenerator",
+  "name": "Password Generator",
+  "version": "0.1.0",
+
+  "sdkVersion": "REPLACED_BY_SKILL_FROM_sdk-version_ENDPOINT",
+  "backend": {
+    "assemblyDir": "duplo.extensions.passwordgenerator/0.1.0/backend",
+    "entryAssembly": "Duplo.Extension.PasswordGenerator.dll"
+  },
+
+  "resources": [
+    {
+      "ticketOriginType": "PasswordGenerator",
+      "restSegment": "extensions/password-generators",
+      "subType": "password-generator",
+      "archetype": "typed",
+      "registrar": "DevOpsResource",
+      "entityType": "Duplo.Extension.PasswordGenerator.PasswordGenerator",
+      "specType": "Duplo.Extension.PasswordGenerator.PasswordGeneratorSpec",
+      "resultType": "Duplo.Extension.PasswordGenerator.PasswordGeneratorResult",
+      "hooksType": "Duplo.Extension.PasswordGenerator.PasswordGeneratorHooks",
+      "serviceType": "Duplo.Extension.PasswordGenerator.PasswordGeneratorService"
+    }
+  ],
+
+  "frontend": {
+    "remote": {
+      "remoteName": "duploExtensionPasswordGenerator",
+      "remoteEntry": "/v1/aiservicedesk/extensions/duplo.extensions.passwordgenerator/fe/remoteEntry.json",
+      "exposedModule": "./Extension",
+      "type": "module"
+    },
+    "menus": [
+      {
+        "id": "duplo.extensions.passwordgenerator-tools",
+        "title": "Tools",
+        "type": "collapsible-section",
+        "children": [
+          {
+            "id": "duplo.extensions.passwordgenerator-password-generators",
+            "title": "Password Generators",
+            "type": "item",
+            "matIcon": "key",
+            "relativeUrl": "extensions/password-generators",
+            "order": 10
+          }
+        ]
+      }
+    ],
+    "routes": [
+      { "path": "extensions/password-generators", "resourceType": "PasswordGenerator", "subType": "password-generator" }
+    ]
+  }
+}
