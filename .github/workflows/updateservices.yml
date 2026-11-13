@@ -29,7 +29,7 @@ jobs:
         image: nginx:123
         type: service
 
-    - name: Configure AWS Credentials
+    - name: Configure AWS Credentials1
       uses: aws-actions/configure-aws-credentials@v6
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
