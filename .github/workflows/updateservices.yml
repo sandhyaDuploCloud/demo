@@ -18,7 +18,7 @@ jobs:
     steps: 
     
     # install and login to the cloud
-    - name: Duplo Setup
+    - name: Duplo Setup1
       uses: duplocloud/actions@node24-upgrade
 
     # uses duploctl from above
